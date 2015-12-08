@@ -10,7 +10,8 @@ class FileUpload {
         "mp3" => 1
     );
     private $extension;
-    function __construct($parametro) {
+    
+    function __construct($parametro, $valor=null) {
         //var_dump($_FILES[$parametro]);
         if (isset($_FILES[$parametro]) && $_FILES[$parametro]["name"] !== "") {
             $this->parametro = $parametro;
@@ -23,6 +24,7 @@ class FileUpload {
             $this->error = true;
         }
     }
+    
     public function getDestino() {
         return $this->destino;
     }
@@ -100,6 +102,7 @@ class FileUpload {
         }
         return false;
     }
+    
 
     public function removeTipo($tipo) {
         if ($this->isTipo($tipo)) {

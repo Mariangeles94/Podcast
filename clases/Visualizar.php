@@ -1,7 +1,6 @@
 <?php
 
 class Visualizar {
-
     static function verTodos() {
         if (isset($_POST["verTodos"])) {
             $directorio = opendir("usuarios/");
@@ -22,18 +21,16 @@ class Visualizar {
                 $a = self::dirToArray($usuar);
                 $directorio = $usuar;
                 $gestor_dir = opendir($directorio);
-
                 foreach ($a as $k => $v) {
                     $categoria = $k;
                     $va = count($v);
                     foreach ($v as $key => $value) {
-                        if (substr($value, 0, 7) !== "Private") {
                             $miArchivo = $usuar . $categoria . "/" . $value;
                             echo"<td>$usuarioBuscar</td> "
                             . "<td>$k</td> "
                             . "<td><audio name='miAudio'controls='controls' loop='loop'><source src='$miArchivo' type='audio/mp3'/></audio></td>"
                             . "</tr>";
-                        }
+                        
                     }
                 }
                 $usuarioBuscar = "";

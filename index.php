@@ -32,7 +32,6 @@ require './clases/AutoCarga.php';
                         <option value="Opera">Opera</option> 
                         <option value="House">House</option> 
                     </select>
-                    <!--<input type="checkbox" name="privado" value="ON" /><label>Privado</label><br/><br/>-->
                     <input type="file" name="file" /><br/><br/>
                     <input type="submit" value="login" name="login" class="submit-button" />
 
@@ -80,7 +79,7 @@ require './clases/AutoCarga.php';
                     </div>
                 <?php } ?>
                 <div id="out">
-                    <a href="phploginout.php">Logout</a>
+                    <a class="loginout" href="phploginout.php">Logout</a>
                 </div>
             </div>
         </div>

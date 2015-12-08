@@ -8,37 +8,39 @@ class CrearDatos {
         $usuario = Request::post("usuario");
         $ruta = "usuarios/";
         $directorio = $ruta . $usuario;
+        if($usuario != ""){
         if (!is_dir($directorio)) {
             $crear = mkdir($directorio, 0777, true);
             if ($crear) {
                 $mensaje.= "Bienvenido " . $usuario . "<br/>";
-            } else {
-                $mensaje.= "Usuario no creado<br/>";
+            } 
+        }else {
+                $mensaje.= "Hola " . $usuario . "<br/>";
             }
+        }else{
+            $mensaje.= "Usuario vacio <br/>";
         }
 
 //////////////////Crear carpeta categoria////////////////////////    
         $categoria = Request::post("categoria");
         $ruta2 = "usuarios/" . $usuario . "/";
         $directorio2 = $ruta2 . $categoria;
-        if (!is_dir($directorio2)) {
-            $crear2 = mkdir($directorio2, 0777, true);
-            if ($crear2) {
+        if($usuario != ""){
+            if (!is_dir($directorio2)) {
+                mkdir($directorio2, 0777, true);
                 $mensaje.= "Categoria " . $categoria . " creada <br/>";
             }
+        }else{
+            $mensaje= "Usuario vacio <br/>";
         }
 //////////////////subir archivo////////////////////////
         $variable = new FileUpload("file");
         $variable->setDestino($directorio2 . "/");
         $nombreOrigen = $variable->getNombre();
-        if (isset($_POST["privado"])) {
-            $variable->setNombre("Private" . $usuario . "_" . $categoria . "_" . $nombreOrigen);
-        }
-        if (!isset($_POST["privado"])) {
-            $variable->setNombre($usuario . "_" . $categoria . "_" . $nombreOrigen);
-        }
+        $variable->setNombre($usuario . "_" . $categoria . "_" . $nombreOrigen);
+        
         $variable->setPolitica(FileUpload::RENOMBRAR);
-        if ($variable->upload()) {
+        if ($variable->upload() && $usuario != "") {
             $mensaje.= "Archivo subido correctamente <br/>";
         } else {
             $mensaje.= "Fallo al subir el archivo<br/>";

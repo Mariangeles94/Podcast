@@ -68,14 +68,15 @@
    }
 body{
     margin: 0px auto;
+    background-color: black;
 }
 #content{
-    width: 699px;
-    height: 708px;
-    padding-left: 200px;
-    padding-right: 450px;
-    padding-top: 100px;
-    background-image:url(fondo.jpg);
+    width: 90%;
+    height: 750px;
+    margin-left: 10%;
+    margin-right:  10%;
+    padding-top: 5%;
+    background: url(fondo.jpg) no-repeat ;
 }
 #log{
     float: left;
@@ -83,21 +84,25 @@ body{
   
 }
 #bus{
-    float: right;
+    float: left;
     width: 200px;
-    margin-left: 250px;
+    margin-left: 30%;
     color:white;
 }
-#out{
-    float: left;
-    width: 50px;
-    margin-bottom: 0px;
-    text-decoration-color: none;
+.loginout{
+     margin-right: 150px;
+    text-decoration: none;
     color:red;
+}
+#out{
+    float: right;
+    margin-top: 200px;
+    margin-left: 150px;
 }
 .tabla{
  color: white;
- width: 600px;
+ width: 500px;
+ padding: 5px 10px;
  background-color: orange;
  border-radius: 5px;
 }
