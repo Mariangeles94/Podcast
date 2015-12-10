@@ -67,13 +67,12 @@ body{
     background-color: black;
 }
 #content{
-    width:100%;
+    width:90%;
     height: 1080px;
     margin-left: 10%;
     margin-right:  10%;
     padding-top: 5%;
     background: url(fondo.jpg) no-repeat ;
-    background-size: cover;
 }
 #log{
     float: left;
